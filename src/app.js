@@ -1,23 +1,31 @@
-let LText = document.getElementById("LID");
-let LSlider = document.getElementById("LValue");
 let L = 100;
 let R = 100;
 let e = 50;
 
-
-
+/*
+let LText = document.getElementById("LID");
+let LSlider = document.getElementById("LValue");
 let eText = document.getElementById("eID");
 let eSlider = document.getElementById("eValue");
 let RText = document.getElementById("omID");
 let RSlider = document.getElementById("omValue");
+*/
 
 const availableScreenWidth = window.screen.availWidth;
 const availableScreenHeight = window.innerHeight;
 console.log("Ширина", availableScreenWidth );
 console.log("Длина", availableScreenHeight );
 
+
+
+let L_text = document.getElementById("L_id");
+let R_text = document.getElementById("R_id");
+let e_text = document.getElementById("e_id");
+let resultButton = document.getElementById('result');
+
 showMessage(L,e,R);
 
+/*
 LSlider.addEventListener("input", function(ee){
     L = Number(LSlider.value);
     LText.innerHTML = "Индуктивность(Гн): " + L;
@@ -39,7 +47,7 @@ RSlider.addEventListener("input", function(ee){
     showMessage(L,e,R);
 });
 
-
+*/
 function showMessage(L,e,R) {
     let massx = [];
     let massy = [];
@@ -71,11 +79,11 @@ function showMessage(L,e,R) {
         /*width: 1600,
         height: 300,*/
         xaxis: {
-            title: 'сек',
+            title: 't,с',
             rangemode: 'tozero',
         },
         yaxis: {
-            title: 'А',
+            title: 'I,А',
         },
         margin: {
             l: 50,
@@ -95,11 +103,11 @@ function showMessage(L,e,R) {
         /*width: 1600,
         height: 300,*/
         xaxis: {
-            title: 'сек',
+            title: 't,с',
             rangemode: 'tozero',
         },
         yaxis: {
-            title: 'А',
+            title: 'I,А',
         },
         margin: {
             l: 50,
@@ -114,4 +122,18 @@ function showMessage(L,e,R) {
     };
     Plotly.react( 'tester', [result], baseLayout );
     Plotly.react( 'tester2', [result2], baseLayout2 );
+}
+
+resultButton.onclick = function(){
+    L = L_text.value;
+    R = R_text.value;
+    e = e_text.value;
+    if (L < 0 || R<0 || e < 0){
+        alert("Значения не могут быть отрицательными!")
+    }
+    else{
+        showMessage(L,e,R);
+    }
+
+    
 }

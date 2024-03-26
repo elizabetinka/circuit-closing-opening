@@ -15,20 +15,28 @@
 
   <div class="split left">
     <div class="centered">
-     
-      <div>
-      <label for="L" id="LID">Индуктивность(Гн): 100</label>
-      <input type="range" id="LValue" name="LValue" min="0" max="200" value="100" />
-      </div>
 
       <div>
-        <label for="e" id="eID">ЭДС источника тока(В): 50 <br/></label>
-        <input type="range" id="eValue" name="eValue" min="0" max="200" value="50" />
+        <label>Индуктивность(Гн)</label> 
+        <input class="input  text-center text" type="text" id="L_id" value="100">
+    </div>
+    <div>
+      <label>Сопротивление контура(Ом)</label> 
+      <input class="input  text-center text" type="text" id="R_id" value="100">
+  </div>
+  <div>
+    <label>ЭДС источника тока(В)</label> 
+    <input class="input  text-center text" type="text" id="e_id" value="50">
+</div>
+     
+      <div class="my-10 text-center">
+        <input  id="del" class="hidden btn text-center" type="button" value="Костыль" />
       </div>
-      <div>
-        <label for="om" id="omID">Сопротивление контура(Ом): 100</label>
-        <input type="range" id="omValue" name="omValue" min="0" max="200" value="100" />
+      <div class="text-center">
+        <input  id="result" class="btn" type="button" value="Результат" />
       </div>
+     
+    
     </div>
   </div>
 
